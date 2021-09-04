@@ -19,7 +19,7 @@ jobs:
     - run: sudo apt-get -y install google-chrome-stable
     - name: install chromdriver
       run: wget https://chromedriver.storage.googleapis.com/2.38/chromedriver_linux64.zip
-    - run: unzip chromedriver_linux64.zip /usr/bin/chromedriver
+    - run: unzip chromedriver_linux64.zip -d /usr/bin/chromedriver
     - name: give permission
       run: chmod 755 /usr/bin/chromedriver
 
