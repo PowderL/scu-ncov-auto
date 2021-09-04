@@ -1,0 +1,26 @@
+name: Automatically clock
+on:
+  workflow-dispatch:
+  schedule:
+    # 北京时间是 UTC+8 时区，所以如果想在北京时间 00:05 打卡，就需要把定时任务设置在 16:05 (UTC)
+    - cron: '5 16 * * *'
+    
+jobs:
+  run-python:
+    runs-on: ubantu-latest
+    steps:
+    - name: checkout actions
+      uses: actions/checkout@v1
+
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v1
+      with:
+      python-version: 3.8
+
+    - shell: bash
+      env:
+        USERNAME: ${{secrets.USERNAME}}
+        PASSWORD: ${{secrets.PASSWORD}}
+        LONGITUDE: ${{secrets.longtitude}}
+        LATITUDE: ${{secrets.latitude}}
+      run: python ncov.py -username="$USERNAME" -password="$PASSWORD" -longitude="$LONGITUDE" -latitude="$LATITUDE"
