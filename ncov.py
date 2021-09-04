@@ -42,14 +42,14 @@ class Clock:
         print('working...')
         browser.delete_all_cookies()  # 清空cookie
         browser.get(self.target)
-        try:  # 切换为账号密码登录
-            browser.switch_to.frame('loginIframe')  # 切换frame
-            switch_element = WebDriverWait(browser, 10).until(
+#         try:  # 切换为账号密码登录
+        browser.switch_to.frame('loginIframe')  # 切换frame
+        switch_element = WebDriverWait(browser, 10).until(
                 EC.element_to_be_clickable((By.XPATH, '/html/body/div/div/div[2]/div[2]/div[1]/div/div[3]'))
             )
-            switch_element.click()
-        except Exception as error:
-            print('network wrong...\n', error)
+        switch_element.click()
+#         except Exception as error:
+#             print('network wrong...\n', error)
         input_element = browser.find_elements_by_tag_name('input')
         username_element, password_element = input_element[0], input_element[1]
         username_element.send_keys(self.username)  # 填用户名
@@ -71,13 +71,13 @@ class Clock:
                 "accuracy": 50,
             },
         )
-        try:  # 提交位置信息
-            area_element = WebDriverWait(browser, 10).until(
+#         try:  # 提交位置信息
+        area_element = WebDriverWait(browser, 10).until(
                 EC.element_to_be_clickable((By.NAME, 'area'))
             )
-            area_element.click()
-        except Exception as error:
-            print('get location wrong...\n', error)
+        area_element.click()
+#         except Exception as error:
+#             print('get location wrong...\n', error)
         time.sleep(1)  # 等待位置信息
         browser.find_element_by_xpath('/html/body/div[1]/div/div/section/div[5]/div/a').click()  # 提交信息
         try:
