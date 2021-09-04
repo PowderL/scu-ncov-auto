@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   schedule:
     # 北京时间是 UTC+8 时区，所以如果想在北京时间 00:05 打卡，就需要把定时任务设置在 16:05 (UTC)
-    - cron: '35 22 * * *'
+    - cron: '41 22 * * *'
     
 jobs:
   run-python:
@@ -16,13 +16,16 @@ jobs:
     - name: install chrome
       run: wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
     - run: sudo apt-get update -y
-    - run: sudo apt-get install -y yum
+    - shell: bash
+      run: sudo apt-get install -y yum
+
     - run: yum install ./google-chrome-stable_current_x86_64.rpm
     - name: install chromdriver
       run: wget https://chromedriver.storage.googleapis.com/2.38/chromedriver_linux64.zip
     - run: unzip chromedriver_linux64.zip /usr/bin/chromedriver
     - name: give permission
       run: chmod 755 /usr/bin/chromedriver
+
     - name: Set up Python 3.8
       uses: actions/setup-python@v1
       with:
