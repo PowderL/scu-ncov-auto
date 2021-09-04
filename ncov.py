@@ -44,7 +44,7 @@ class Clock:
         print('preparing...')
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument('--headless')
-        browser = webdriver.Chrome('/usr/bin/chromedriver/chromedriver', options=chrome_options)
+        browser = webdriver.Chrome('/usr/bin/chromedriver', options=chrome_options)
         print('working...')
         browser.delete_all_cookies()  # 清空cookie
         browser.get(self.target)
