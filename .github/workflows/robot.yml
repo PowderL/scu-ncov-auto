@@ -14,11 +14,10 @@ jobs:
       uses: actions/checkout@v1
 
     - name: install chrome
-      run: wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-    - run: sudo apt-get update -y
+      run: sudo apt-get update -y
     - run: sudo apt-get -y install google-chrome-stable
     - name: install chromdriver
-      run: wget https://chromedriver.storage.googleapis.com/2.38/chromedriver_linux64.zip
+      run: wget http://chromedriver.storage.googleapis.com/93.0.4577.15/chromedriver_linux64.zip
     - run: unzip chromedriver_linux64.zip
 
     - run: sudo mv chromedriver /usr/bin/chromedriver
