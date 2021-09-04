@@ -19,12 +19,6 @@
 # smtp.sendmail(sender, receivers, message.as_string())
 # -*- coding: UTF-8 -*-
 
-"""
-author: Aaron
-e-mail: w98987@126.com
-wechat official account: 化院学生从不学化学
-"""
-
 import time
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
