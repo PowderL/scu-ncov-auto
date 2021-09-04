@@ -13,6 +13,14 @@ jobs:
     - name: checkout actions
       uses: actions/checkout@v1
 
+    - name: install chrome
+      run: wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+    - run: yum install ./google-chrome-stable_current_x86_64.rpm
+    - name: install chromdriver
+      run: wget https://chromedriver.storage.googleapis.com/2.38/chromedriver_linux64.zip
+    - run: unzip chromedriver_linux64.zip /usr/bin/chromedriver
+    - name: give permission
+      run: chmod 755 /usr/bin/chromedriver
     - name: Set up Python 3.8
       uses: actions/setup-python@v1
       with:
