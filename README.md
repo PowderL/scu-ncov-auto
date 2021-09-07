@@ -22,7 +22,8 @@ SCU-NCOV-AUTO
 ## 以应用程序运行：
 确保有chrome浏览器，并[在此](http://npm.taobao.org/mirrors/chromedriver/)下载对应版本的chromedriver <br>
 将chromedriver.exe放入tools目录 <br>
-运行run.exe文件，首次运行请先添加用户
+在腾讯云开放平台，注册账号获取app_id, app_key,
+# 薅腾讯的羊毛，它不香吗？（doge）
 
 ## 以python文件运行：
 确保有chrome浏览器，并[在此](http://npm.taobao.org/mirrors/chromedriver/)下载对应版本的chromedriver <br>
